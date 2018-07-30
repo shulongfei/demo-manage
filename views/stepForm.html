@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style type="text/css">
+    .progressBar {
+      padding-top: 50px;
+      padding-bottom: 30px;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    .progressBar .active-ball {
+      background-color: #09B7EA;
+    }
+    .ball {
+      background-color: #D4D4D4;
+    }
+    .progressBar .ball-out {
+      float: left;
+    }
+    .progressBar p {
+      width: 35px;
+      height: 35px;
+      float: left;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+      font-size: 14px;
+    }
+    .line {
+      background-color: #D4D4D4;
+    }
+    .progressBar .active-line {
+      background-color: #09B7EA;
+    }
+    .progressBar i {
+      display: block;
+      float: left;
+      margin-top: 18px;
+      width: calc(100% - 55px);
+      height: 1px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .progressBar .ball-out {
+      position: relative;
+    }
+    .progressBar span {
+      display: block;
+      width: 60px;
+      font-size: 14px;
+      position: absolute;
+      top: -34px;
+      left: -10px;
+      text-align: center;
+    }
+    .progressBar .out {
+      width: 46px;
+      height: 46px;
+      background-color: rgba(184, 234, 250, 0.6);
+      position: absolute;
+      top: -5px;
+      left: -5.5px;
+    }
+    .clear:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .step_one, .step_two {
+      float: left;
+      width: calc(50% - 20px);
+    }
+    .card-form-one, .card-form-two, .card-form-three {
+      margin: 40px auto 0;
+      max-width: 500px;
+    }
+    .card-from-none {
+      display: none;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <fieldset class="layui-elem-field layui-field-title">
+    <legend>分布式表单提交</legend>
+  </fieldset>
+
+  <div class="layui-fluid form-container">
+    <div class="layui-card">
+      <div class="layui-card-body">
+          <!-- 自定义时间线 （shu）-->
+          <div class="progressBar clear">
+            <div class="step_one">
+              <div class="ball-out">
+                <span>填写信息</span>
+                <p class="active-ball ball">1</p>
+                <p class="out"></p>
+              </div>
+              <i class="active-line line"></i>
+            </div>
+
+            <div class="step_two">
+              <div class="ball-out">
+                <span>确认信息</span>
+                <p class="ball">2</p>
+                <!--<p class="out"></p>-->
+              </div>
+              <i class="line"></i>
+            </div>
+            
+            <div class="step_three">
+
+              <div class="ball-out">
+                  <span>提交成功</span>
+                  <p class="ball">3</p>
+                  <!--<p class="out"></p>-->
+              </div>
+
+            </div>
+            
+          </div>
+          <form class="layui-form">
+            <div class="card-form-one">
+              <div class="layui-form-item">
+                <label class="layui-form-label">姓名:</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                </div>
+              </div>
+
+              <div class="layui-form-item">
+                <label class="layui-form-label">性别:</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                </div>
+              </div>
+
+              <div class="layui-form-item">
+                <label class="layui-form-label">爱好:</label>
+                <div class="layui-input-block">
+                  <select name="interest" lay-filter="aihao">
+                    <option value="">请选择</option>
+                    <option value="0">写作</option>
+                    <option value="1" selected="">阅读</option>
+                    <option value="2">游戏</option>
+                    <option value="3">音乐</option>
+                    <option value="4">旅行</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="layui-form-item">
+                <label class="layui-form-label">毕业院校:</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                </div>
+              </div>
+
+              <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <button type="button" class="layui-btn one-btn">下一步</button>
+              </div>
+            </div>
+
+            <div class="card-form-two card-from-none">
+              <div style="min-height: 240px; font-size: 30px; text-align: center;">
+                内容自定, 内容所在DIV可删除
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <button type="button" class="layui-btn two-btn">确定</button>
+              </div>
+            </div>
+
+            <div class="card-form-three card-from-none">
+              <div style="min-height: 240px; font-size: 30px; text-align: center;">
+                提交成功
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <button type="button" class="layui-btn three-btn">完成</button>
+              </div>
+            </div>
+            <div>
+            说明
+            <hr class="layui-bg-gray">
+                <ul>
+                  <li>1、目前不想做任何说明</li>
+                  <li>2、目前还是不想做任何说明</li>
+                  <li>3、目前内容尚未完善，实际内容根据业务需要进行添加</li>
+                </ul>
+            </div>
+
+          </form>
+
+      </div>
+    </div>
+  </div>
+  <script src="../layui/layui.js"></script>    
+  <script>
+  layui.config({
+	    base: '../../../layuiadmin/' //静态资源所在路径
+	  }).use(['form'], function(){
+	    var $ = layui.jquery,
+          form = layui.form;
+      // 方法集合    
+      var active = {
+        // btn 点击事件按钮 需要添加隐藏的模块 移除遮罩层
+        // remove 需要移除的模块 点亮第几个时间点 
+        // 判断是否提交完成，移除前两层时间亮灯 
+        toggle: function(btn, remove, bool){ 
+          // 内容样式控制 (第一次点击事件)
+          $('.'+btn+'-btn').on('click', function(){
+            var html = '<p class="out"></p>'
+            $('.card-form-'+btn).addClass('card-from-none');
+            $('.card-form-'+remove).removeClass('card-from-none');
+            $('.step_'+remove+' .ball').addClass('active-ball');
+            $('.step_'+remove+' .ball-out').append(html);
+            $('.step_'+btn+' .ball-out p:last-child').remove();
+            if(bool) {
+              // 移除前两层时间点的亮灯
+              $('.step_two .ball').removeClass('active-ball');
+              $('.step_three .ball').removeClass('active-ball');
+            }
+            if (btn === 'two') {
+              $('.step_two .line').addClass('active-line');
+            }
+            if (btn === 'three') {
+              $('.step_two .line').removeClass('active-line');
+            }
+
+          });
+
+        },
+      }
+      // 调用函数（添加多少个结点调用多少次）
+      active.toggle('one','two');
+      active.toggle('two','three');
+      active.toggle('three','one',true);
+
+          
+	    
+	  });
+  </script>
+</body>
+</html>
