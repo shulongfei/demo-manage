@@ -12,24 +12,24 @@ ejx_layui采用[layuiAdmin](http://www.layui.com/admin/)作为基础后台管理
 ## 目录
 ```
 - config
-  - webpack.dev.js     ------------------------------------------------qwq
+  - webpack.dev.js                                           # webpack基础配置，和带路配置目录
 
-- dist                 ------------------------------------------------12
-  - layuiAdmin
-  - view               -------------------------------------------------12
-  - login
+- dist                                                       # 项目开发目录和构建目录
+  - layuiAdmin                                               # js模块 AND 第三方插件
+  - view                                                     # 功能模块页面
+  - login                                                    # 登录页面
 
-- node_modules
+- node_modules                                               # 各种依赖
 
-- nodeJS
-  - node.exe
-  - run.bat
+- nodeJS                                                     # node环境总目录
+  - node.exe                                                 # node
+  - run.bat                                                  # node运行批处理文件
   
-- src
+- src                                                        # js打包入口文件
   - index.js
 
-- package.json
-- package-lock.json
+- package.json                                               # 定义项目所需模块
+- package-lock.json                                          # 记录项目包安装信息
 
 ```
 
@@ -46,10 +46,18 @@ cd ../
 
 # 启动服务
 npm run dev
-```
 浏览器访问 http://localhost:8888
 
+# 代理配置
+webpack.dev.js 文件修改变量ip
+ '/api': {
+    target: 'http://localhost:8080', // 接口的域名
+    secure: false,  // 如果是https接口，需要配置这个参数
+    changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+    pathRewrite: {'^/api': ''}
+  }
 
+```
 
 
 ## 发布
