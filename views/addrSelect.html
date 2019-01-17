@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <title></title>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/index.css">
+
+    <style>
+        body{
+            background-color: #f9f9f9;
+            height:100%;
+        }
+        #header .title{
+            width: 100%;
+        }
+        #header .title img{
+            width: 100%;
+            height: 100%;
+        }
+        #modal-tool{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background-color: #000;
+            filter:Alpha(opacity=10);
+            opacity: 0.6;
+            display: none;
+        }
+        .modal-box{
+            width: 420px;
+            height: 320px;
+            border-radius: 10px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            z-index: 200;
+            margin-top: -200px;
+            margin-left: -150px;
+            padding: 10px;
+            background-color: #fff;
+            display: none;
+        }
+        .modal-box p{
+            font-size: 18px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .down{
+            width: 100%;
+            margin-top: 10px;
+        }
+        .down li{
+            width: 50%;
+            height: 42px;
+            float: left;
+            color: #fff;
+            line-height: 40px;
+            text-align: center;
+        }
+        .down li a{
+            color: #fff;
+            display:block;
+            background-color: #427AB7;
+            width: 100px;
+            height: 40px;
+            margin: 0 auto;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .clear:after{
+            content:"";
+            display: table;
+            clear:both;
+        }
+        .tool-code{
+            text-align: center;
+        }
+        .tool-code img{
+            width: 120px;
+        }
+        .displayNone{
+            display:none;
+        }
+        .modal-head-city{
+            line-height: 26px;
+        }
+        .modal-head-city h4{
+            float: left;
+        }
+        .title-city{
+            float: right;
+            width: 60%;
+        }
+
+        .title-city .heat-city{
+            margin-right: 10px;
+         }
+        .title-city .heat-city,
+        .title-city .city-name{
+            float: left;
+        }
+        .prov-count>li{
+            height: 35px;
+            line-height:35px;
+        }
+        .prov-count .uni{
+            height: 16px;
+            width: 16px;
+            text-align: center;
+            line-height: 16px;
+            border-radius: 50%;
+            background-color:#427AB7;
+            color: #fff;
+            font-weight: bold;
+        }
+        .prov-count .uni-zhixiashi{
+           height: 16px;
+            width: 16px;
+            text-align: center;
+            line-height: 16px;
+            border-radius: 50%;
+            background-color:#fff;
+        }
+        .prov-count .uni-zhixiashi a{
+            font-weight: bold;
+        }
+        .prov-left,
+        .prov-right{
+            position: relative;
+        }
+        .city-box{
+            position: absolute;
+            top:30px;
+            left: 46px;
+            z-index: 100;
+            width: 300px;
+            background: #fff;
+            display: none;
+            box-shadow: 0px 2px 13px 1px rgba(0, 0, 0,0.3);
+            padding: 0;
+
+        }
+       /* .prov-count ul li:hover .city-box{
+            z-index: 200;
+            background: #fff;
+            display: block;
+         
+        }*/
+        .city-box a{
+            height: 28px;
+            line-height: 28px;
+            color: #ccc;
+        }
+        .city-box ul{
+            margin-left: 0;
+            padding: 0 6px;
+            transition: all .3s;
+        }
+        .city-box ul .font-bg{
+            color:#333;
+        }
+        .logo-title{
+            float: left;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="nav clear">
+        <div class="logo-title">地址选择demo案例</div>
+        <div class="personal"><a class="now_city" data-toggle="modal" data-target="#myModal">城市</a>|<a href="login.html">登录</a>|<a href="register.html">注册</a>|<a href="personal.html">个人中心</a>|<a>退出</a></div>
+    </div>
+    <div class="title">
+        <img src="../lib/bootstrap/images/wh_02.png" alt=""/>
+    </div>
+</header>
+<section class="indexContent"></section>
+<footer id="footer">
+    转载请注明出处
+</footer>
+
+<script src="../lib/bootstrap/js/jquery.min.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.js"></script>
+<script src="../lib/bootstrap/js/chinaData.js"></script>
+
+
+</body>
+</html>

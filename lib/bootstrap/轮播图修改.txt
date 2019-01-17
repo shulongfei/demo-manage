@@ -1,0 +1,131 @@
+1、首先注意的部分是data-ride="carousel"
+
+默认使用Bootstrap的Carousel组件，只需要加上 data-ride="carousel" 就可以实现自动播放了。无需使用初始化的js函数。所以，如果carousel不会自动播放，那么首先检查这个部分。这里还能加其他参数，比如是设置图片轮转的时间间隔。
+
+代码：<div id="carousel-ad" class="carousel slide" data-ride="carousel" data-interval="2000">
+
+2、其实还有手动初始化carousel组件的方法
+
+这个方法在Bootstrap 2.x就在使用，当 data-ride="carousel" 这个方法不管用的时候，可以手动初始化一下。代码如下：
+
+$('#carousel-ad').carousel();
+
+如果还想控制图片轮转的时间间隔，还有参数：
+
+$(function(){
+          $('#carousel-ad').carousel({
+           interval: 3000
+          });
+       });
+
+如果设置不自动播放，还可以：
+
+$('#carousel-ad').carousel({
+           pause: true,
+           interval: false
+        });
+		
+		
+
+		
+		Via JavaScript
+Call carousel manually with:
+
+Copy
+$('.carousel').carousel()
+Options
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to data-, as in data-interval="".
+
+Name	type	default	description
+interval	number	5000	The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.
+pause	string | null	"hover"	If set to "hover", pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave. If set to null, hovering over the carousel won't pause it.
+wrap	boolean	true	Whether the carousel should cycle continuously or have hard stops.
+keyboard	boolean	true	Whether the carousel should react to keyboard events.
+Methods
+.carousel(options)
+
+Initializes the carousel with an optional options object and starts cycling through items.
+
+Copy
+$('.carousel').carousel({
+  interval: 2000
+})
+.carousel('cycle')
+
+Cycles through the carousel items from left to right.
+
+.carousel('pause')
+
+Stops the carousel from cycling through items.
+
+.carousel(number)
+
+Cycles the carousel to a particular frame (0 based, similar to an array).
+
+.carousel('prev')
+
+Cycles to the previous item.
+
+.carousel('next')
+
+Cycles to the next item.
+
+Events
+Bootstrap's carousel class exposes two events for hooking into carousel functionality.
+
+Both events have the following additional properties:
+
+direction: The direction in which the carousel is sliding (either "left" or "right").
+relatedTarget: The DOM element that is being slid into place as the active item.
+All carousel events are fired at the carousel itself (i.e. at the <div class="carousel">).
+
+Event Type	Description
+slide.bs.carousel	This event fires immediately when the slide instance method is invoked.
+slid.bs.carousel	This event is fired when the carousel has completed its slide transition.
+Copy
+$('#myCarousel').on('slide.bs.carousel', function () {
+  // do something…
+})
+
+
+通过JavaScript
+手动调用转盘：
+复制
+$（'木马'）。carousel()
+选项
+选项可以通过数据属性或JavaScript传递。对于数据属性，将选项名称附加到数据，如在数据间隔=“。
+名称类型缺省描述
+间隔数5000自动循环一个项目之间延迟的时间量。如果FALSE，旋转木马将不会自动循环。
+暂停|空字符串“悬停”如果设置为“悬停”，暂停在MouseEnter旋转木马循环和恢复旋转木马骑MouseLeave。如果设置为NULL，悬停在旋转木马不会暂停它。
+包布尔TRUE是否旋转木马应该不断循环或有硬停止。
+键盘布尔值是否旋转盘应该响应键盘事件。
+方法
+旋转木马（选项）
+初始化带有可选选项对象的旋转木马，并开始循环。
+复制
+旋转木马（{旋转木马）
+间隔：2000
+}）
+旋转木马（'cycle”）。
+循环通过从左到右的旋转木马项目。
+旋转木马（'pause”）。
+停止旋转木马通过项目循环。
+旋转木马（号码）
+将旋转木马循环到特定帧（0为基础，类似于数组）。
+旋转木马（'prev”）。
+上一个项目的循环。
+旋转木马（“下”）。
+下一个项目的循环。
+事件
+引导的旋转木马类暴露两个事件挂钩到旋转木马功能。
+这两个事件有以下附加属性：
+方向：旋转木马滑动的方向（“左”或“右”）。
+relatedtarget：正在滑入的地方作为活动项目的DOM元素。
+所有的旋转木马事件都是在旋转木马本身（即在div类=“旋转木马”）。
+事件类型描述
+当调用滑动实例方法时，此事件立即发生。
+当旋转木马完成幻灯片转换时，该事件将被触发。
+复制
+$（“# mycarousel '），（'slide。BS。旋转木马，函数（）{
+做某事…
+}）
