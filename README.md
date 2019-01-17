@@ -4,7 +4,7 @@
 主要写一些layui、bootstrap、angularJS小demo，上传使用集成软件 xammp, 该文件是从我司项目中街截取出来，目录结构不做详细，页面仅供参考。
 
 - [参考文档 - layui](http://www.layui.com)
-- [参考文档 - bootstrap]
+- [参考文档 - bootstrap](http://www.bootcss.com/)
 ## 目录
 ```
 - layui                                     # 集成layui框架，layui官网可下载
