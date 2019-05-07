@@ -1,6 +1,8 @@
 
 ## 页面重新构建中（文档未重新编写）…………………………………………
 
+[系统在线访问](https://shulongfei.github.io/demo-manage)
+
 主要写一些layui、bootstrap、angularJS小demo，上传使用集成软件 xammp, 该文件是从我司项目中街截取出来，目录结构不做详细，页面仅供参考。
 
 - [参考文档 - layui](http://www.layui.com)
