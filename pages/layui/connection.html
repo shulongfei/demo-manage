@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../../vendors/layui/css/layui.css" media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style type="text/css">
+    .form-container .layui-col-md4{
+      margin-bottom: 15px;
+    }
+    .form-container .layui-form-label {
+      /*默认： 80*/
+      /*width: 120px;*/
+    }
+    .form-container .layui-input-block {
+      /*默认：110*/
+      /*margin-left: 150px;*/
+    }
+  </style>
+</head>
+<body>
+
+  <!-- <fieldset class="layui-elem-field layui-field-title">
+    <legend>省市区三级联动demo</legend>
+  </fieldset> -->
+  <br>
+  <div class="layui-fluid form-container">
+  <br>
+  <h2>省市区三级联动demo</h2>
+  <br>
+  <div class="layui-card">
+    <div class="layui-card-body">
+      <form class="layui-form">
+
+        <div class="layui-form-item layui-row">
+
+
+          <div class="layui-col-md4">
+            <label class="layui-form-label">请选择省:</label>
+            <div class="layui-input-block">
+              <select name="quiz1" id="quiz1" lay-filter="test">
+               
+              </select>           
+            </div>
+          </div>
+
+          <div class="layui-col-md4">
+            <label class="layui-form-label">请选择市:</label>
+            <div class="layui-input-block">
+              <select name="quiz2" id="quiz2" lay-filter="test1">
+               
+              </select>
+            </div>
+          </div>
+        
+          <div class="layui-col-md4">
+            <label class="layui-form-label">请选择县/区:</label>
+            <div class="layui-input-block">
+              <select name="quiz3" id="quiz3">
+                
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="../../vendors/layui/layui.js"></script>    
+<script>
+layui.use(['form'], function(){
+    var $ = layui.jquery,
+        form = layui.form;
+    var selDate = {
+        "area":[
+            {"regionName":'成华区',"regionCode":"001"},
+            {"regionName":'武侯区',"regionCode":"002"},
+            {"regionName":'青羊区',"regionCode":"003"},
+            {"regionName":'高新区',"regionCode":"004"},
+            {"regionName":'锦江区',"regionCode":"005"}
+        ],
+        "street":[
+            {"regionName":'成华区1',"regionCode":"001"},
+            {"regionName":'成华区2',"regionCode":"002"},
+            {"regionName":'成华区3',"regionCode":"003"},
+            {"regionName":'成华区4',"regionCode":"004"},
+            {"regionName":'成华区5',"regionCode":"005"}
+        ],
+        "place":[
+            {"regionName":'街道1',"regionCode":"001"},
+            {"regionName":'街道2',"regionCode":"002"},
+            {"regionName":'街道3',"regionCode":"003"},
+            {"regionName":'街道4',"regionCode":"004"},
+            {"regionName":'街道5',"regionCode":"005"}
+        ]
+    };
+    // 一级联动事件触发
+    form.on('select(test)', function(data){
+        var value = data.value;
+        areaState.area.fn(value);
+    });
+
+    // 二级联动事件触发
+    form.on('select(test1)', function(data){
+        var value = data.value;
+        areaState.street.fn(value);
+    });
+
+    //ajax 方法封装，也可直接写在areaState对象里面
+    // function areaGet(fn){
+    //   $.ajax({
+    //     suc:function(data){
+    //       fn(data)
+    //     }
+    //   })
+    // }
+
+    var areaState = {
+          area: {
+              state: false,
+              data: [],
+              fn: function(value){ // value 表示的是区域代码，及传到后台的数据
+                  this.state = true;
+                  areaState.street.state = false;
+                  areaState.place.state = false;
+                  
+                  // 从后台调用真实接口
+                  // get(function(data){
+                  //    areaState.street.data = data;
+                  //    console.log(areaState.street.data);
+                  //    addSelect('street select',areaState.street.data,false,'regionCode','regionName');
+                  // }
+
+                  areaState.street.data = selDate.street;
+                  if(value !== '') {
+                     addSelect('quiz2',areaState.street.data,true,'regionCode','regionName');
+                  } else {
+                    $('#quiz2').html('');
+                    $('#quiz3').html('');
+                    form.render("select");
+                  }
+                 
+              }
+          },
+          street: {
+              state: false,
+              data: [],
+              fn: function(value){
+                  this.state = true;
+                  areaState.place.state = false;
+
+                  areaState.place.data = selDate.place;
+                  if(value !== '') {
+                     addSelect('quiz3',areaState.place.data,true,'regionCode','regionName');
+                  } else {
+                    $('#quiz3').html('');
+                    form.render("select");
+                  }
+              } 
+          },
+          place: {
+              state: false,
+              data: [],
+              fn: function(){
+                  this.state = true;
+              }
+          }
+      };
+
+      //select添加选项
+      function addSelect(id,data,bool,val,text,region){//bool是否添加“请选择”选项
+        val = val || 'type';
+        text = text || 'name';
+        var d="'"+region+"'";
+        var html = '';
+        var $id = $('#'+id);
+        $id.html('');
+        if(bool){html += '<option value="">请选择</option>';}
+        for(var i in data){
+            html +='<option value="'+data[i][val]+'">'+data[i][text]+'</option>';      
+        }
+        $id.html(html);
+        form.render("select");
+      }
+
+      addSelect('quiz1',selDate.area,true,'regionCode','regionName');
+    
+  });
+</script>
+</body>
+</html>

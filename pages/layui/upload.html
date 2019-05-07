@@ -8,19 +8,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="../lib/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../../vendors/layui/css/layui.css" media="all">
 </head>
 <body>
+
   <br> 
-  <div class="layui-card layadmin-header">
-    <div class="layui-breadcrumb" lay-filter="breadcrumb">
-      <h2>上传主键功能演示1</h2>
-    </div>
-  </div>
-  <br>
-
-
   <div class="layui-fluid">
+    <h2>上传主键功能演示1</h2>
+
     <br>
     <div  id="uploadLoadingDiv">
       <div class="layui-progress" lay-showpercent="true" lay-filter="demo" >
@@ -44,10 +39,9 @@
 
       </div>
     </div>
-
   </div>
   
-  <script src="../lib/layui/layui.js"></script>  
+  <script src="../../vendors/layui/layui.js"></script>  
   <script>
   layui.use(['upload','element','layer'], function(){
     var $ = layui.jquery
@@ -78,7 +72,7 @@
       elem: '#test-upload-change'
       ,url: '../data/up.php'
       ,auto:false
-      // ,exts: 'zip|rar|7z'
+      ,exts: 'zip|rar|7z'
       ,xhr:xhrOnProgress
       ,progress:function(value){//上传进度回调 value进度值
         console.log(value);
