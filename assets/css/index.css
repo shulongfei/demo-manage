@@ -1349,9 +1349,18 @@ a:focus {
   color: #ffffff;
   background: #1e282c;
 }
-.skin-blue .sidebar-menu > li.active > a {
+
+/*.skin-blue .sidebar-menu > li.active > a {
   border-left-color: #3c8dbc;
-}
+}*/
+
+/*.skin-blue .sidebar-menu > li:hover > a {
+  border-left-color: #3c8dbc;
+  transition: all .2s
+}*/
+
+
+
 .skin-blue .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
   background: #2c3b41;
