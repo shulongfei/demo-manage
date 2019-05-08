@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="../../vendors/layui/css/layui.css" media="all">
 </head>
 <body>
-
-  <br> 
   <div class="layui-fluid">
-    <h2>上传主键功能演示1(后台占未开启)</h2>
-
+    <h2>上传主键功能演示
+        <span style="color: red;font-size: 14px;">（当前仅.zip/.rar文件, 5M以上的文件比较明显, 进度条值已打印在控制台）</span>
+    </h2>
+    <br>
     <br>
     <div  id="uploadLoadingDiv">
       <div class="layui-progress" lay-showpercent="true" lay-filter="demo" >
@@ -26,7 +26,6 @@
 
     <div class="layui-row layui-col-space15">
       <div class="layui-col-md12">
-
         <div class="layui-card">
           <div class="layui-card-header">选完文件后不自动上传</div>
           <div class="layui-card-body">
@@ -34,13 +33,18 @@
               <button type="button" class="layui-btn layui-btn-normal" id="test-upload-change">选择文件</button>
               <button type="button" class="layui-btn" id="test-upload-change-action">开始上传</button>
             </div>
+            <br>
+            <br>
+            <div>
+              说明：该事例仅提供参考，实际效果和演示一致，不含后台处理文件的过程。
+            </div>
           </div>
         </div>
-
       </div>
     </div>
+   
+   
   </div>
-  
   <script src="../../vendors/layui/layui.js"></script>  
   <script>
   layui.use(['upload','element','layer'], function(){
@@ -48,31 +52,31 @@
     ,upload = layui.upload
     ,element = layui.element
     ,layer = layui.layer;
-
+    
     //创建监听函数
     var xhrOnProgress=function(fun) {
         xhrOnProgress.onprogress = fun; //绑定监听
          //使用闭包实现监听绑
         return function() {
-            //通过$.ajaxSettings.xhr();获得XMLHttpRequest对象
-            var xhr = $.ajaxSettings.xhr();
-             //判断监听函数是否为函数
-              if (typeof xhrOnProgress.onprogress !== 'function')
-                   return xhr;
-               //如果有监听函数并且xhr对象支持绑定时就把监听函数绑定上去
-                if (xhrOnProgress.onprogress && xhr.upload) {
-                      xhr.upload.onprogress = xhrOnProgress.onprogress;
-                }
-                return xhr;
-         }
-     };
+          //通过$.ajaxSettings.xhr();获得XMLHttpRequest对象
+          var xhr = $.ajaxSettings.xhr();
+          //判断监听函数是否为函数
+          if (typeof xhrOnProgress.onprogress !== 'function')
+          return xhr;
+          //如果有监听函数并且xhr对象支持绑定时就把监听函数绑定上去
+          if (xhrOnProgress.onprogress && xhr.upload) {
+                xhr.upload.onprogress = xhrOnProgress.onprogress;
+          }
+          return xhr;
+        }
+    };
      
     //选完文件后不自动上传
     upload.render({
       elem: '#test-upload-change'
-      ,url: '../data/up.php'
+      ,url: '../../data/upload.php'
       ,auto:false
-      ,exts: 'zip|rar|7z'
+      ,exts: 'zip|rar'
       ,xhr:xhrOnProgress
       ,progress:function(value){//上传进度回调 value进度值
         console.log(value);
@@ -83,7 +87,6 @@
       //   console.log(obj.total); //得到总文件数
       //   console.log(obj.successful); //请求成功的文件数
       //   console.log(obj.aborted); //请求失败的文件数
-
       // }
       ,bindAction: '#test-upload-change-action'
       ,before: function(input){
