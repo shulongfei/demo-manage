@@ -22,29 +22,60 @@ $(document).ready(function(){
     wrapper       : '.wrapper',
     contentWrapper: '.content-wrapper',
     iframe        : '.main-iframe',
+    treeview      : '.treeview',
+    headerTitle   : '.content-header h1',
+    breadcrumb    : '.breadcrumb'
   };
 
   var ClassName = {
-    open          : 'menu-open'
+    open          : 'menu-open',
+    active        : 'active',
+    holdTransition: 'hold-transition'
   };
 
   demoManageInit();
   // 初始化页面加载(路由，iframe，菜单动态加载)
   function demoManageInit() {
-    $('body').removeClass('hold-transition');
+    $('body').removeClass(ClassName.holdTransition);
     var current_url = window.location.href.split('#')[1];
-    var activeDom = $('a[href="#'+current_url+'"]');
-    var defaultDom = $('a[href="#native/dashboard1"]');
+    var activeDom   = $('a[href="#'+current_url+'"]');
+    var defaultDom  = $('a[href="#native/dashboard1"]');
+    var activeUrl   = 'pages/'+current_url+'.html';
+    var defaultUrl  = 'pages/native/dashboard1.html';
+    var title       = activeDom.text().trim();
+
+    // 动态加载页面和面包屑
     if(current_url) {
-      $(Selector.iframe).attr('src', 'pages/'+current_url+'.html'); 
-      activeDom.parent('li').addClass('active');
-      activeDom.parents('.treeview').addClass('active');
+      $(Selector.iframe).attr('src', activeUrl); 
+      activeDom.parent('li').addClass(ClassName.active);
+      activeDom.parents(Selector.treeview).addClass(ClassName.active);
+      breadcrumb(activeDom, title);
     } else {
-      $(Selector.iframe).attr('src', 'pages/native/dashboard1.html');
-      defaultDom.parent('li').addClass('active');
-      defaultDom.parents('.treeview').addClass('active');
-    } 
+      $(Selector.iframe).attr('src', defaultUrl);
+      defaultDom.parent('li').addClass(ClassName.active);
+      defaultDom.parents(Selector.treeview).addClass(ClassName.active);
+    }
   }
+
+  // 面包屑导航
+  function breadcrumb(activeDom, title) {
+    var partentTitle = $(activeDom).parents(Selector.treeview).find('>a').text().trim();
+    var arrayBread   = partentTitle.split('\n');
+    var html = '<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>'
+    for(var i = 0; i < arrayBread.length; i++) {
+      if(arrayBread[i].trim() === ''){
+        arrayBread.splice(i,1);
+        i = i-1;
+      }
+    };
+    for(var j = 0; j < arrayBread.length; j++) {
+      html += '<li>'+arrayBread[j]+'</li>';
+    }
+    html += '<li class="active">'+title+'</li>'
+    $(Selector.headerTitle).text(title);
+    $(Selector.breadcrumb).html(html)
+ }
+
 });
 
 
@@ -124,58 +155,61 @@ $(document).ready(function(){
     followLink    : false,
     clickAcitve   : true,
     trigger       : '.treeview a',
-    triggerSingle : '.treeview-single a'
+    triggerSingle : '.treeview-single a',
   };
 
   var Selector = {
-    tree        : '.tree',
-    treeview    : '.treeview',
-    treeviewMenu: '.treeview-menu',
-    open        : '.menu-open, .active',
-    menuOpen    : '.menu-open',
-    data        : '[data-widget="tree"]',
-    active      : '.active',
-    iframe      : '.main-iframe'
-
+    tree          : '.tree',
+    treeview      : '.treeview',
+    treeviewMenu  : '.treeview-menu',
+    treeviewMenuLi: '.treeview-menu li',
+    open          : '.menu-open, .active',
+    menuOpen      : '.menu-open',
+    data          : '[data-widget="tree"]',
+    active        : '.active',
+    iframe        : '.main-iframe',
+    headerTitle   : '.content-header h1',
+    breadcrumb    : '.breadcrumb'
   };
 
   var ClassName = {
-    open: 'menu-open',
-    tree: 'tree',
+    open    : 'menu-open',
+    tree    : 'tree',
     treeview: 'treeview',
-    active: 'active'
+    active  : 'active'
 
   };
 
   $(Selector.data).each(function () {
     $(this).addClass(ClassName.tree);
     $(Selector.treeview + Selector.active).addClass(ClassName.open);
-
     $(this).on('click', Default.trigger, function (event) {
       toggle($(this), event)
     });
-
     // 为了不影响已有结构，单独添加一级菜单点击事件(不阻止默认事件)。
     $(this).on('click', Default.triggerSingle, function() {
       singleMenu($(this));
     })
-
   });
 
   function toggle(link, event) {
     var treeviewMenu = link.next(Selector.treeviewMenu);
     var parentLi     = link.parent();
-    var siblingLi    = parentLi.parents('.treeview').siblings('.treeview').find('.treeview-menu li');
+    var psiblingLi   = parentLi.parents(Selector.treeview).siblings(Selector.treeview)
+    var siblingLi    = psiblingLi.find(Selector.treeviewMenuLi);
     var isOpen       = parentLi.hasClass(ClassName.open);
     var isTreeview   = parentLi.hasClass(ClassName.treeview);
-    var href = link.attr("href").slice(1);
+    var href         = link.attr("href").slice(1);
+    var activeHref   = 'pages/'+href+'.html';
+    var title        = link.text().trim();
 
     if(href) {
-      $(Selector.iframe).attr('src', 'pages/'+href+'.html');
+      breadcrumb(link, title)
+      $(Selector.iframe).attr('src', activeHref);
     } 
     if(!isTreeview) {
-      parentLi.addClass('active').siblings().removeClass('active');
-      siblingLi.removeClass('active');
+      parentLi.addClass(ClassName.active).siblings().removeClass(ClassName.active);
+      siblingLi.removeClass(ClassName.active);
     }
     if (!parentLi.is(Selector.treeview)) {
       return;
@@ -213,14 +247,37 @@ $(document).ready(function(){
   function singleMenu(link) {
     var treeviewMenu = link.next(Selector.treeviewMenu);
     var parentLi     = link.parent();
-    var siblingLi    = parentLi.siblings('.treeview').find('.treeview-menu li');
-    var href = link.attr("href").slice(1);
+    var siblingLi    = parentLi.siblings(Selector.treeview).find(Selector.treeviewMenuLi);
+    var href         = link.attr("href").slice(1);
+    var singleHref   = 'pages/'+href+'.html';
+    var title        = link.text().trim();
     if(href) {
-      $(Selector.iframe).attr('src', 'pages/'+href+'.html');
+      $(Selector.iframe).attr('src', singleHref);
     } 
     expand(treeviewMenu, parentLi);
-    siblingLi.removeClass('active');
+    siblingLi.removeClass(ClassName.active);
+    breadcrumb(link, title)
   }
+
+  // 面包屑导航
+  function breadcrumb(activeDom, title) {
+    var partentTitle = $(activeDom).parents(Selector.treeview).find('>a').text().trim();
+    var arrayBread   = partentTitle.split('\n');
+    var html = '<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>'
+    for(var i = 0; i < arrayBread.length; i++) {
+      if(arrayBread[i].trim() === ''){
+        arrayBread.splice(i,1);
+        i = i-1;
+      }
+    };
+    for(var j = 0; j < arrayBread.length; j++) {
+      html += '<li>'+arrayBread[j]+'</li>';
+    }
+    html += '<li class="active">'+title+'</li>'
+    $(Selector.headerTitle).text(title);
+    $(Selector.breadcrumb).html(html)
+ }
+
 })
 
 
