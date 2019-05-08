@@ -12,15 +12,12 @@ body {
 body {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 /* Layout */
 .wrapper {
   height: 100%;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 .wrapper:before,
 .wrapper:after {
@@ -123,12 +120,12 @@ body {
 .content {
   width: 100%;
   position: absolute;
-  top: 41px;
+  top: 56px;
   bottom: 0;
 }
 @media (max-width: 991px) {
   .content {
-    top: 77px;
+    top: 92px;
   }
 }
 
@@ -284,7 +281,7 @@ a:focus {
 }
 .content-header {
   position: relative;
-  padding: 15px 15px 0 15px;
+  padding: 15px 15px;
 }
 .content-header > h1 {
   margin: 0;
@@ -390,10 +387,12 @@ a:focus {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   padding-top: 50px;
   min-height: 100%;
   width: 230px;
   z-index: 810;
+  overflow: hidden;
   -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -430,6 +429,12 @@ a:focus {
 }
 .sidebar {
   padding-bottom: 10px;
+  height: 100%;
+  width: 250px;
+  overflow: auto;
+}
+.sidebar-menu {
+   width: 230px;
 }
 .sidebar-form input:focus {
   border-color: transparent;
@@ -1044,7 +1049,7 @@ a:focus {
   border-top-left-radius: 0;
   padding: 1px 0 0 0;
   border-top-width: 0;
-  width: 280px;
+  // width: 280px;
 }
 .navbar-nav > .user-menu > .dropdown-menu,
 .navbar-nav > .user-menu > .dropdown-menu > .user-body {
@@ -1099,7 +1104,7 @@ a:focus {
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer {
   background-color: #f9f9f9;
-  padding: 10px;
+  padding: 8px 0;
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer:before,
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer:after {
@@ -1189,8 +1194,7 @@ a:focus {
 }
 .navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
   position: absolute;
-  right: 0;
-  left: auto;
+  left: -27px; 
 }
 @media (max-width: 991px) {
   .navbar-custom-menu > .navbar-nav {
@@ -1266,6 +1270,9 @@ a:focus {
   top: 0;
 }
 
+.main-iframe body {
+  padding: 15px;
+}
 
 
 
