@@ -381,8 +381,17 @@ a:focus {
 }
 /*
  * Component: Sidebar
- * ------------------
+ * ----------------------// position: absolute;
  */
+/*外层滚动条*/
+ .sidebar-scroll {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 248px;
+  overflow: auto;
+ }
 .main-sidebar {
   position: absolute;
   top: 0;
@@ -392,17 +401,24 @@ a:focus {
   min-height: 100%;
   width: 230px;
   z-index: 810;
-  overflow: hidden;
   -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+ 
 }
 @media (max-width: 767px) {
   .main-sidebar {
     padding-top: 100px;
   }
 }
+
+@media (max-width: 767px) {
+  .sidebar-scroll {
+    z-index: 600;
+  }
+}
+
 @media (max-width: 767px) {
   .main-sidebar {
     -webkit-transform: translate(-230px, 0);
@@ -429,13 +445,9 @@ a:focus {
 }
 .sidebar {
   padding-bottom: 10px;
-  height: 100%;
-  width: 250px;
-  overflow: auto;
 }
-.sidebar-menu {
-   width: 230px;
-}
+
+
 .sidebar-form input:focus {
   border-color: transparent;
 }
@@ -535,6 +547,7 @@ a:focus {
 .sidebar-menu .active > .treeview-menu {
   display: block;
 }
+
 /*
  * Component: Sidebar Mini
  */
@@ -1351,7 +1364,6 @@ a:focus {
   border-left: 3px solid transparent;
 }
 .skin-blue .sidebar-menu > li:hover > a,
-.skin-blue .sidebar-menu > li.active > a,
 .skin-blue .sidebar-menu > li.menu-open > a {
   color: #ffffff;
   background: #1e282c;
@@ -1359,7 +1371,7 @@ a:focus {
 
 /*.skin-blue .sidebar-menu > li.active > a {
   border-left-color: #3c8dbc;
-}*/
+}
 
 /*.skin-blue .sidebar-menu > li:hover > a {
   border-left-color: #3c8dbc;
