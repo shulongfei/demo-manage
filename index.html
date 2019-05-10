@@ -34,7 +34,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="assets/images/mai1.jpeg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Admin</span>
+              <span class="hidden-xs">舒水水</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-footer"><a href="#">修改密码</a></li>
@@ -51,140 +51,154 @@
   </header>
 
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+  <div class="sidebar-scroll">
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">主目录</li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#native/dashboard1"><i class="glyphicon glyphicon-record"></i> Dashboard 1</a></li>
+            </ul>
+          </li>
 
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">主目录</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#native/dashboard1"><i class="glyphicon glyphicon-record"></i> Dashboard 1</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-user"></i>
+              <span>用户管理</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#pages/UI/general4.html"><i class="glyphicon glyphicon-record"></i>基本信息</a></li>
+              <li><a href="#pages/UI/icons.html"><i class="glyphicon glyphicon-record"></i> 列表查询</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-edit"></i> <span>随笔记</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#pages/forms/general1.html"><i class="glyphicon glyphicon-record"></i>GIT基础使用</a></li>
+              <li><a href="#pages/forms/advanced.html"><i class="glyphicon glyphicon-record"></i>常用Vue命令</a></li>
+              <li><a href="#pages/forms/editors1.html"><i class="glyphicon glyphicon-record"></i>HTML合同模板</a></li>
+              <li><a href="#pages/forms/editors2.html"><i class="glyphicon glyphicon-record"></i>常用脚手架</a></li>
+              <li><a href="#pages/forms/editors3.html"><i class="glyphicon glyphicon-record"></i>npm模块</a></li>
+              <li><a href="#pages/forms/editors4.html"><i class="glyphicon glyphicon-record"></i>node原生模块</a></li>
+              <li><a href="#pages/forms/editors5.html"><i class="glyphicon glyphicon-record"></i>前端面试题(初)</a></li>
+              <li><a href="#pages/forms/editors6.html"><i class="glyphicon glyphicon-record"></i>前端面试题(中)</a></li>
+              <li><a href="#pages/forms/editors7.html"><i class="glyphicon glyphicon-record"></i>前端面试题(高)</a></li>
+            </ul>
+          </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-user"></i>
-            <span>用户管理</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#pages/UI/general4.html"><i class="glyphicon glyphicon-record"></i>基本信息</a></li>
-            <li><a href="#pages/UI/icons.html"><i class="glyphicon glyphicon-record"></i> 列表查询</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-edit"></i> <span>随笔记</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#pages/forms/general1.html"><i class="glyphicon glyphicon-record"></i>GIT基础使用</a></li>
-            <li><a href="#pages/forms/advanced.html"><i class="glyphicon glyphicon-record"></i>常用Vue命令</a></li>
-            <li><a href="#pages/forms/editors1.html"><i class="glyphicon glyphicon-record"></i>HTML合同模板</a></li>
-            <li><a href="#pages/forms/editors2.html"><i class="glyphicon glyphicon-record"></i>常用脚手架</a></li>
-            <li><a href="#pages/forms/editors3.html"><i class="glyphicon glyphicon-record"></i>npm模块</a></li>
-            <li><a href="#pages/forms/editors4.html"><i class="glyphicon glyphicon-record"></i>node原生模块</a></li>
-            <li><a href="#pages/forms/editors5.html"><i class="glyphicon glyphicon-record"></i>前端面试题(初)</a></li>
-            <li><a href="#pages/forms/editors6.html"><i class="glyphicon glyphicon-record"></i>前端面试题(中)</a></li>
-            <li><a href="#pages/forms/editors7.html"><i class="glyphicon glyphicon-record"></i>前端面试题(高)</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-bold"></i> <span>bootstrap Demo</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#bootstrap/addrSelect"><i class="glyphicon glyphicon-record"></i>地址选择</a></li>
+              <li><a href="#bootstrap/advanced1"><i class="glyphicon glyphicon-record"></i>三级联动</a></li>
+              <li><a href="#bootstrap/advanced2"><i class="glyphicon glyphicon-record"></i>地址选择</a></li>
+            </ul>
+          </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-bold"></i> <span>bootstrap Demo</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#bootstrap/addrSelect"><i class="glyphicon glyphicon-record"></i>地址选择</a></li>
-            <li><a href="#bootstrap/advanced1"><i class="glyphicon glyphicon-record"></i>三级联动</a></li>
-            <li><a href="#bootstrap/advanced2"><i class="glyphicon glyphicon-record"></i>地址选择</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-italic"></i> <span>LayUI Demo</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#layui/upload"><i class="glyphicon glyphicon-record"></i>文件上传</a></li>
+              <li><a href="#layui/connection"><i class="glyphicon glyphicon-record"></i>三级联动</a></li>
+            </ul>
+          </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-italic"></i> <span>LayUI Demo</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#layui/upload"><i class="glyphicon glyphicon-record"></i>文件上传</a></li>
-            <li><a href="#layui/connection"><i class="glyphicon glyphicon-record"></i>三级联动</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-font"></i> <span>angularJS Demo</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#pages/forms/general3.html"><i class="glyphicon glyphicon-record"></i>动态取值</a></li>
+              <li><a href="#pages/forms/general3.html"><i class="glyphicon glyphicon-record"></i>基础路由</a></li>
+            </ul>
+          </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-font"></i> <span>angularJS Demo</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#pages/forms/general3.html"><i class="glyphicon glyphicon-record"></i>动态取值</a></li>
-            <li><a href="#pages/forms/general3.html"><i class="glyphicon glyphicon-record"></i>基础路由</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-fire"></i> <span>native Demo</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#native/tab.html"><i class="glyphicon glyphicon-record"></i>tab动态切换</a></li>
+              <li><a href="#native/general3.html"><i class="glyphicon glyphicon-record"></i>基础路由</a></li>
+            </ul>
+          </li>
 
-        <li class="treeview-single"><a href="#document.html"><i class="glyphicon glyphicon-list-alt"></i> <span>学习文档</span></a></li>
-        <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-share-alt"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-record"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="glyphicon glyphicon-record"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#aaa"><i class="glyphicon glyphicon-record"></i> Level Three</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level One</a></li>
-          </ul>
-        </li>
-        <li class="header">关于</li>
-        <li class="treeview-single"><a href="#help.html"><i class="glyphicon glyphicon-record text-red"></i> <span>帮助</span></a></li>
-        <li class="treeview-single"><a href="#"><i class="glyphicon glyphicon-record text-yellow"></i> <span>说明</span></a></li>
-      </ul>
-      <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+          <li class="treeview-single"><a href="#document.html"><i class="glyphicon glyphicon-list-alt"></i> <span>学习文档</span></a></li>
+          <li class="treeview">
+            <a href="#">
+              <i class="glyphicon glyphicon-share-alt"></i> <span>Multilevel</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level One</a></li>
+              <li class="treeview">
+                <a href="#"><i class="glyphicon glyphicon-record"></i> Level One
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level Two</a></li>
+                  <li class="treeview">
+                    <a href="#"><i class="glyphicon glyphicon-record"></i> Level Two
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right glyphicon glyphicon-menu-left"></i>
+                      </span>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="#aaa"><i class="glyphicon glyphicon-record"></i> Level Three</a></li>
+                      <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level Three</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#"><i class="glyphicon glyphicon-record"></i> Level One</a></li>
+            </ul>
+          </li>
+          <li class="header">关于</li>
+          <li class="treeview-single"><a href="#help.html"><i class="glyphicon glyphicon-record text-red"></i> <span>帮助</span></a></li>
+          <li class="treeview-single"><a href="#"><i class="glyphicon glyphicon-record text-yellow"></i> <span>说明</span></a></li>
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+  </div>
 
 
   <!-- Content Wrapper. Contains page content -->
