@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ypaint</title>
+	<link rel="stylesheet" href="">
+</head>
+<style>
+	  .canvas-box {
+	  	width: 1024px;
+	  	height: 768px;
+	  	box-sizing: border-box;
+	  	border: 1px solid #ddd;
+	  	margin: 0 auto;
+	  	position: relative;
+	  }
+	  #canvas{
+	    display: block;
+	    margin:auto;
+	  }
+	  .canvas-box .bg-img {
+	  	width: 1024px;
+	  	height: 768px;
+	  	float: left;
+	  }
+
+	  .bg-img img{
+	  	width: 100%;
+	  }
+	  .canvas-img {
+	  	position: absolute;
+	  	top:0;
+	  	left: 0
+	  }
+</style>
+<body>
+	<div class="canvas-box">
+		<div class="bg-img"><img src="bg.png"></div>
+		<div class="canvas-img"><canvas id="canvas" width='1024' height="768"></canvas></div>
+	</div>	
+
+	</br>
+	</br>	
+
+	<div style="text-align:center">
+		<button id="rect">矩形工具</button> 
+		<button id="circle">圆形工具</button>
+		<button id="line">画笔工具</button>
+		<button id="arrow">箭头工具</button>
+	</div>
+
+</body>
+<script src="./Ypaint.js"></script>
+<script>
+
+	var paint = Ypaint(document.getElementById('canvas'));
+	// 绘制矩形
+	document.getElementById('rect').addEventListener('click',function(){
+		paint.chooseRect();
+	})
+	document.getElementById('circle').addEventListener('click',function(){
+		paint.chooseCircle();
+	})
+	document.getElementById('line').addEventListener('click',function(){
+		paint.chooseLine();
+	})
+	document.getElementById('arrow').addEventListener('click',function(){
+		paint.chooseArrow();
+	})
+
+
+	// 矩形颜色、倒角、粗细
+	paint.outerParams.rect.lineWidth = 2;
+	paint.outerParams.rect.radius = 0;
+	paint.outerParams.rect.color = '#990033';
+
+	// 圆粗细、颜色
+	paint.outerParams.circle.lineWidth = 2;
+	paint.outerParams.circle.color = '#6FE1DC';
+
+	// 画笔粗细、颜色
+	paint.outerParams.line.lineWidth = 2;	
+	paint.outerParams.line.color = '#6FE1DC';
+
+	// 箭头颜色、粗细
+	paint.outerParams.arrow.range = 10;
+	paint.outerParams.arrow.color = '#6FE1DC';
+</script>
+</html>
