@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title>angularJS动态生成文本框并获取值</title>
+</head>
+<body>
+  <!--完成控制器的调用-->
+  <div ng-controller="myCtrl">
+    <button ng-click="result()">添加</button>
+    <table>
+      <tr ng-repeat="enq in enquiry.enquiries track by $index" name="enquiry_tr">
+        <td class="enquiry_region_input">
+          <input ng-model="list.data1[$index]" type="text" >
+          <input ng-model="list.data2[$index]" type="text" >
+        </td>
+        <td class="enquiry_num_in">
+          <input  ng-model="list.data3[$index]" type="text">
+        </td>
+        <td>
+          <button ng-click="addEnquiry($index)">添加</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+  //完成模块的创建
+  var app = angular.module('myModule',['ng']);
+  //完成控制器的创建
+  app.controller('myCtrl', function ($scope) {
+    
+     $scope.enquiry = {
+      enquiries: [{key: 0, value: ""}]
+     };
+
+    $scope.addEnquiry = function (index) {
+      console.log(111);
+      var len = $scope.enquiry.enquiries.length;
+       $scope.enquiry.enquiries.splice(index + 1, 0,{key: index + 1, value: ""});
+      
+    }
+
+    $scope.list = {
+      data1: [],
+      data2: [],
+      data3: []
+    };
+
+    $scope.result = function() {
+      console.log($scope.list);
+      console.log($scope.list.data1);
+      console.log($scope.list.data2);
+      console.log($scope.list.data3);
+    }
+    
+  });
+</script>
+</body>
+</html>
