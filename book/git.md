@@ -103,11 +103,19 @@ xxx：表示远端地址
   git checkout -b branchName  创建分支并切换为当前分支git branch branchName -> git checkout branchName
   
   3、分支合并
-  git checkout master -> git checkout 要合并的分支名   （如果出现冲突则先解决冲突）
+  git checkout master -> 这里将分之代码合并到主分支，所以我们先切换到主分之,合并前先提交本地分之代码。
+  
+  **方式1：**
+  git pull origin branchName -> 这种方式比较暴力，如果没有冲突会自动合并，然后push一下到远端。
+                                有冲突会提示，根据提示一一解决然后重新提交即可及add -> commit ->push。
+  **方式2：**
+
+  git fetch origin branchName  - > get merge branchName 这个两个命令相当于git pull 中间我们可以使用git diff branchName对比
+
   
   4、删除分支
   git branch -d branchName 删除本地分支
-  git push origin -d branchName 删除远端分支
+  git push origin --delete branchName 删除远端分支
   
   5、查看远端分支
   git baranch 查看本地分支
@@ -118,6 +126,7 @@ xxx：表示远端地址
 ```
   目前所用地方较少，大体与创建分支差不多。主要用于标记版本，如v1、v2、v3
 ```
+## 1.6 这个文档写了有一段时间，后面看了下，可能有一些细节没写到，不过建议练习一下应该都能理解。
 
 查看当前 文档截图：
 更多文档：[book](https://github.com/shulongfe)
