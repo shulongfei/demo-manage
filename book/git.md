@@ -1,3 +1,7 @@
+[文档地址：https://github.com/shulongfei/demo-manage/blob/master/book/git.md](https://github.com/shulongfei/demo-manage/blob/master/book/git.md)
+
+[文档管理在线界面：https://shulongfei.github.io/demo-manage/#native/git](https://shulongfei.github.io/demo-manage/#native/git)
+
 GIT刚入门时很多地方对自己造成了一些困扰的地方，也没有找到一份比较完整的使用资料，故做一个总结。以下为自己工作中用过，并总结出来的的常用命令，建议学习的同时使用github练习[github 官网](https://github.com)。
 
 中文文件编码命令： git config --global core.quotepath false
