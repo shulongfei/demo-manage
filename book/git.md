@@ -110,7 +110,8 @@ xxx：表示远端地址
                                 有冲突会提示，根据提示一一解决然后重新提交即可及add -> commit ->push。
   **方式2：**
 
-  git fetch origin branchName  - > get merge branchName 这个两个命令相当于git pull 中间我们可以使用git diff branchName对比
+  git fetch origin branchName  - > get merge branchName 
+                                   这个两个命令相当于git pull 中间我们可以使用git diff branchName对比
 
   
   4、删除分支
