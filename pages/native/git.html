@@ -1,148 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GIT基础使用教程</title>
+    <style>
+* {
+  box-sizing: border-box;
+}
+body {
+  border: 0;
+  font: normal 100% Arial, sans-serif，"Microsoft Yahei", Arial;
+  font-size: 0.14rem;
+  font-size: 14px;
+  background: #fff;
+  color: #333333;
+  width: 100%;
+  min-width: 1100px;
+}
+.ellipsis {
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body,ul,ol,p,h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+section {
+  font-family: "宋体";
+  font-size: 0.16rem;
+  font-size: 16px;
+  background: #efefef;
+  color: #000;
+  width: 100%;
+  min-width: 1100px;
+  padding: 40px 0;
+}
+span {
+  display: inline-block;
+  padding-right: 5px;
+  min-width: 20px;
+  line-height: 25px;
+}
+#contract .page {
+  width: 794px;
+  height: 1123px;
+  margin: 10px auto;
+  background: #fff;
+  padding: 100px 110px;
+  line-height: 26px;
+  box-shadow: 0 0 8px #ccc;
+}
+#contract .page p {
+  text-indent: 32px;
+}
+#contract .page p .content {
+  text-indent: 0;
+  border-bottom: 1px solid #000;
+  display: inline;
+}
+#contract .page .list {
+  width: 100%;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#contract .page .list .content {
+  border-bottom: 1px solid #000;
+  width: 100%;
+}
+#contract .page .list:last-of-type {
+  margin-bottom: 26px;
+}
+#contract .page table {
+  table-layout: fixed;
+  width: 600px;
+  margin: 0 auto;
+  border-right: 1px #000 solid;
+}
+#contract .page table .tr-first {
+  height: 0;
+  overflow: hidden;
+}
+#contract .page table .tr-first td {
+  height: 0;
+}
+#contract .page table tr td {
+  border-bottom: 1px #000 solid;
+  border-left: 1px #000 solid;
+  text-align: center;
+  height: 32px;
+}
+#contract .page table tr td span {
+  display: inline-block;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-align: right;
+  padding: 0 3px;
+}
+#contract .page .table-border {
+  width: 604px;
+  padding: 1px;
+  border: 1px #000 solid;
+  margin: 0 auto;
+}
+#contract .page .signature p span {
+  text-indent: 0;
+  display: inline-block;
+  width: calc(50% - 16px);
+}
+#contract .page .table-pay tr:nth-of-type(n+4) td {
+  text-align: left;
+  padding: 0 5px;
+}
+#contract .page .table-list tr:nth-of-type(2) td,
+#contract .page .table-otherList tr:nth-of-type(2) td {
+  line-height: 34px;
+}
+#contract .page .table-list tr:nth-of-type(3),
+#contract .page .table-otherList tr:nth-of-type(3) {
+  font-weight: bold;
+}
+#contract .page .table-list tr:nth-of-type(3) td,
+#contract .page .table-otherList tr:nth-of-type(3) td {
+  line-height: 30px;
+}
+#contract .page .table-list tr:nth-of-type(n+4) td,
+#contract .page .table-otherList tr:nth-of-type(n+4) td {
+  height: 32px;
+}
+#contract .page .table-otherList tr:nth-of-type(2) td {
+  line-height: 34px;
+}
+#contract .page .table-otherList tr:nth-of-type(3) {
+  font-weight: bold;
+}
+#contract .page .table-otherList tr:nth-of-type(3) td {
+  line-height: 34px;
+}
+#contract .page .table-otherList tr:nth-of-type(n+4) td {
+  height: 32px;
+}
+#contract .page .table-otherList .tr-first {
+  border-top: none;
+}
+
+    </style>
 </head>
+
+
 <body>
-<p>GIT刚入门时很多地方对自己造成了一些困扰的地方，也没有找到一份比较完整的使用资料，故做一个总结。以下为自己工作中用过，并总结出来的的常用命令，建议学习的同时使用github练习<a href="https://github.com">github 官网</a>。</p>
-
-<p>中文文件编码命令： git config --global core.quotepath false</p>
-
-<h2>1.1 安装 git（官网）</h2>
-
-<h3>windwos上安装</h3>
-
-<p>在 Windows 上安装 Git 也有几种安装方法。 官方版本可以在 Git 官方网站下载。 打开 http://git-scm.com/download/win，下载会自动开始。 要注意这是一个名为 Git for Windows的项目（也叫做 msysGit），和 Git 是分别独立的项目；更多信息请访问 http://msysgit.github.io/。</p>
-
-<h3>mac上安装</h3>
-
-<p>在 Mac 上安装 Git 有多种方式（自带的就可以用）。 最简单的方法是安装 Xcode Command Line Tools。 Mavericks （10.9） 或更高版本的系统中，在 Terminal 里尝试首次运行 git 命令即可。 如果没有安装过命令行开发者工具，将会提示你安装</p>
-
-<h2>1.2 本地如何拥有一个远程项目（pc）</h2>
-
-<h3>准备工作</h3>
-
-<p>条件：当远端已存在一个项目</p>
-
-<p>当git安装完成之后，我们先初始化用户名和邮箱，默认为注册用户名和邮箱。
-<code>git
-git config --global user.name &quot;shulongfei&quot;
-git config --global user.email &quot;shulongfei@163.com&quot;
-</code></p>
-
-<h3>本地pc拥有一个远端项目</h3>
-
-<p>xxx：表示远端地址</p>
-
-<p><strong>方式1：从远端复制一个项目到本地</strong>
-<code>git
-  git clone xxx
-</code></p>
-
-<blockquote><p>说明：
-<code>git clone</code>: 复制一个远端项目</p></blockquote>
-
-<p><strong>方式2：当本地存在一个项目，将其关联并推送到远端</strong>
-<code>git 
-  cd existing_folder
-  git init
-  git remote add origin xxx
-  git commit
-  git push -u origin master
-</code></p>
-
-<blockquote><p>说明：
-1. <code>cd</code>: 进入到某个文件夹
-2. <code>git init</code>: 初始化
-3. <code>git remote add orgin xxx</code>: 连接远端项目
-4. <code>git add</code>: 提交到本地缓存
-5. <code>git commit</code>: 提交到本地仓库
-6. <code>git push -u origin master</code>: 将代码推送到远端</p></blockquote>
-
-<p><strong>方式3：当本地存在一个远端仓库</strong>
-<code>git
-  cd existing_repo
-  git remote add origin xxx
-  git push -u origin --all
-  git push -u origin --tags
-</code></p>
-
-<blockquote><p><code>注</code>: 方式3个人很少用到不做说明。</p></blockquote>
-
-<h2>1.3 GIT常用撤销操作</h2>
-
-<h3>git add之后的撤销操作</h3>
-
-<p><code>git reset HEAD</code>: 表示撤销所有</p>
-
-<p><code>git reset HEAD  xxx xxx</code>: 表示撤销需要撤销的文件,多个文件之间用空格隔开</p>
-
-<h3>git commit 或 push 之后的撤销操作</h3>
-
-<p><code>git commit --amend </code>: 修改commit的注释，已最后一次修改的内容为主</p>
-
-<p><code>git log</code>: 查看提交的日期和id</p>
-
-<p><code>git reset --soft id</code>: 回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</p>
-
-<p><code>git reset id</code>: 回退到某个版本，回退了add的信息，恢复到了index file一级。如果还要提交，需 add-&gt;commit</p>
-
-<p><code>git reset –-hard id</code>: 彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉 慎用！</p>
-
-<h2>1.4 如何解决冲突</h2>
-
-<p><strong>方式1：本人常用</strong>
-<code>
-  1、先 commit 提交本地代码至缓存 git add -&gt;  git commit -m &#39;注释内容&#39;
-  2、git pull  则出现冲突文件名 文件内容则标注出冲突的内容如：
-     &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-          本地修改
-     =======
-          远端别人修改
-     &gt;&gt;&gt;&gt;&gt;&gt;&gt; a94b10b314c646c482f012ea3732ddde931c549e 
-     将文件处理之后重新执行  git add -&gt; git commit -m &#39;注释内容&#39;
-</code>
-<strong>方式2：推荐使用</strong>
-<code>
-  保留生产服务器上所做的改动,仅仅并入新配置项 
-  git stash -&gt; git pull -&gt; git stash pop 然后重新提交代码即可 git add -&gt; git commit -m &#39;注释内容&#39; 
-  git stash: 将当前的工作区内容保存到Git栈中。
-  git stash pop: 从最近的一个stash中读取内容并恢复。
-  git stash list: 显示Git栈内的所有备份
-</code>
-<strong>方式2：不推荐使用（恢复到之前版本重新更新重新编辑代码！）</strong>
-<code>
-  直接 git reset --hard id -&gt; git pull 恢复到远端维修改之前的版本，更新远端最新内容。
-</code></p>
-
-<h2>1.5 分支的使用</h2>
-
-<p><code></code>`
-  1、拉取远端分支
-  git clone -b 分支名(branch) XXX</p>
-
-<p>  2、创建分支
-  git checkout -b branchName  创建分支并切换为当前分支git branch branchName -&gt; git checkout branchName</p>
-
-<p>  3、分支合并
-  git checkout master -&gt; git checkout 要合并的分支名   （如果出现冲突则先解决冲突）</p>
-
-<p>  4、删除分支
-  git branch -d branchName 删除本地分支
-  git push origin -d branchName 删除远端分支</p>
-
-<p>  5、查看远端分支
-  git baranch 查看本地分支
-  git branch -a 查看远端分支  <br/><code></code>`</p>
-
-<h2>1.6 标签的使用</h2>
-
-<p><code>
-  目前所用地方较少，大体与创建分支差不多。主要用于标记版本，如v1、v2、v3
-</code></p>
-
-<p>查看当前 文档截图：
-更多文档：<a href="https://github.com/shulongfe">book</a></p>
+  <section>
+      <div id="contract">
+          <div class="page">
+              <div style="font-size: 29px;line-height: 45px;text-align: center;margin: 0 0 50px;"><b>GIT基础使用教程</b></div>
+              <p>GIT刚入门时很多地方对自己造成了一些困扰的地方，也没有找到一份比较完整的使用资料，故做一个总结。以下为自己工作中用过，并总结出来的的常用命令，建议学习的同时使用github练习 <a href="http://www.github.com">github 官网</a>。</p>
+              <p><b>一、 安装 git（官网）</b></p>
+              <hr>
+              <p><b>windwos上安装</b></p>
+              <p>在 Windows 上安装 Git 也有几种安装方法。 官方版本可以在 Git 官方网站下载。 打开 http://git-scm.com/download/win，下载会自动开始。 要注意这是一个名为 Git for Windows的项目（也叫做 msysGit），和 Git 是分别独立的项目；更多信息请访问 http://msysgit.github.io。</p>
+              <p><b>mac上安装</b></p>
+              <p>在 Mac 上安装 Git 有多种方式（自带的就可以用）。 最简单的方法是安装 Xcode Command Line Tools。 Mavericks （10.9） 或更高版本的系统中，在 Terminal 里尝试首次运行 git 命令即可。 如果没有安装过命令行开发者工具，将会提示你安装。</p>
+              <p><b>二、本地如何拥有一个远程项目（pc）</b></p>
+              <hr>
+              <p><b>准备工作</b></p>
+              <p><b>条件：当远端已存在一个项目</b></p>
+              <p><b>当git安装完成之后，我们先初始化用户名和邮箱，默认为注册用户名和邮箱。</b></p>
+              <br>
+              <br>
+              <div class="list">说明：<span class="content">&ensp;觉得对你有帮助，可以帮忙点下星。</span></div>
+              <br>
+              <div class="list">因工作，就先开个头吧，需要的自己去写，git.md 文档已放入book文件夹中</div>
+              <br>
+              <div class="list">页面由以前项目更改得来的，属于公开文档模版</div>
+              <br>
+              <div class="list">转载请注明出处！！！！</div>
+              <br>
+              <div class="list">以前也写了份响应式的，没时间整理，就先这样吧。</div>
+              <br>
+              <div class="list">最近工作压力比较大……………………可能有一段时间不能写前端了</div>
+            </div>
+          <div class="page">
+              <p>房屋户型：</p>
+              <p>【成套住房】<span class="content">&ensp;</span>室<span class="content">&ensp;</span>厅<span class="content">&ensp;</span>厨<span class="content">&ensp;</span>卫；</p>
+              <p>【非成套住房】<span class="content">&ensp;</span>室<span class="content">&ensp;</span>厅<span class="content">&ensp;</span>厨<span class="content">&ensp;</span>卫，房屋平面图见附件。</p>
+              <p>房屋权属状况：该房屋权属状况为第<span class="content">&ensp;</span>种，权属上(已设定)(未设定)抵押，房屋(已被)(未被)查封；抵押登记日期：<span class="content">&ensp;</span>；他项权证号码：<span class="content">&ensp;</span>。</p>
+              <p>（1）甲方对该房屋享有所有权，甲方或其代理人应向乙方出示房屋所有权证。</p>
+              <p>（2）甲方对该房屋享有转租权的，甲方或其代理人应向乙方出示房屋所有权人允许甲方转租该房屋的书面凭证，该凭证为：<span class="content">&ensp;</span>。（见附件）</p>
+              <p>房屋租赁形式：【整租】【分租】。如分租，分租卧室使用面积<span class="content">&ensp;</span>平方米。卫生间【无】【独立使用】【共用】；厨房【无】【独立使用】【共用】；阳台【无】【独立使用】【共用】；其他：<span class="content">&ensp;</span>【无】【独立使用】【共用】。</p>
+              <p>房屋居住人数情况：<span class="content">&ensp;</span>人，最多不超过<span class="content">&ensp;</span>人，不得在厨房、卫生间、阳台和地下储藏室居住。单间最多居住人数和人均居住建筑面积应当符合武汉市人民政府的规定。乙方和实际居住人不一致的，乙方应当向甲方提供实际居住人信息。实际居住人发生变动的，乙方应及时告知甲方。</p>
+              <p><b>第二条 租金、押金约定</b></p>
+              <p>甲乙双方约定的上述房屋月租金额为人民币（大写）<span class="content">&ensp;</span>元（¥：<span class="content">&ensp;</span>元）。租金：按[年][半][季][月]结算，乙方应于每[年][半年][季][月]<span class="content">&ensp;</span>日前向甲方支付租金。</p>
+              <p>押金：人民币（大写）<span class="content">&ensp;</span>元整 （¥：<span class="content">&ensp;</span>元）。于<span class="content">&ensp;</span>年<span class="content">&ensp;</span>月<span class="content">&ensp;</span>日前一次性付清。</p>
+              <p>支付方式：<span class="content">&ensp;</span></p>
+              <p>支付账号：<span class="content">&ensp;</span></p>
+              <p>租赁期满或合同解除后，房屋租赁押金除抵扣应由乙方承担的费用、租金以及乙方应当承担的违约赔偿责任外，剩余部分应如数返还给乙方。在租赁期间，出租方不得单方面上调房屋租金。</p>
+              <p><b>第三条 租赁期限</b></p>
+              <p>该房屋租赁期限自<span class="content">&ensp;</span>年<span class="content">&ensp;</span>月<span class="content">&ensp;</span>日起至<span class="content">&ensp;</span>年<span class="content">&ensp;</span>月<span class="content">&ensp;</span>日止。甲方应于<span class="content">&ensp;</span>年<span class="content">&ensp;</span>月<span class="content">&ensp;</span>日前将房屋按约定条件交付给乙方。《房屋及附属设施设备、装饰装修和相关物品交付清单》（见合同附件）经甲乙双方交验签字或盖章并移交房屋钥匙及<span class="content">&ensp;</span>后视为交付完成。甲乙双方应该遵循诚实信用的原则，按照约定办理交接手续，合同经各方签字后生效。</p>
+          </div>
+          <div class="page">
+              <p><b>第四条 相关费用的承担方式</b></p>
+              <p>租赁期内的下列费用中：(1)水费(2)电费(3)电话费(4)电视收视费(5)供暖费(6)燃气费(7)物业管理费(8)卫生费(9)上网费(10)车位费(11)<span class="content">&ensp;</span>费用。<span class="content">&ensp;</span>由甲方承担，<span class="content">&ensp;</span>由乙方承担。本合同中未列明的与房屋有关的其他费用均由甲方承担。如乙方垫付了应由甲方支付的费用，甲方应根据乙方出示的相关缴费凭据向乙方返还相应费用。</p>
+              <p><b>第五条 关于租赁期满或合同解除的规定</b></p>
+              <p>租赁期满或甲乙双方协商达成解除合同后，甲方有权收回房屋，乙方应按照原状返还房屋及其附属物品、设施设备。甲乙双方应对房屋和附属物品、设备设施及水电使用等情况进行验收，结清各自应当承担的费用。</p>
+              <p>房屋租赁期限届满乙方要继续承租该房屋的，应提前<span class="content">&ensp;</span>日向甲方提出续租要求，乙方在同等条件下可优先续租房屋。</p>
+              <p>如乙方继续使用租赁房屋甲方未提出异议的，本合同继续有效，租赁期间为不定期，双方均有权随时解除合同，但应提前<span class="content">&ensp;</span>日书面通知对方。</p>
+              <p><b>第六条 甲方的权利与义务</b></p>
+              <p>１.甲方应按照《武汉市房屋租赁管理办法》的要求，应当自签订房屋租赁合同之日起30日内，到社区（村）出租房屋综合服务管理机构申请办理房屋租赁登记备案手续。甲方应向乙方提供房屋租金发票，相关税费由甲方缴纳。</p>
+              <p>2.甲方负责对出租房屋及设施和附属物进行经常检查，按照国家和行业标准配置消防设施、器材。物业正常使用时因建筑质量、折旧损耗等引起的故障维修义务由甲方负责，费用由甲方承担。</p>
+              <p>3.因甲方未履行维修义务使乙方或第三人财产损失或者人身伤害的，由甲方承担相应的法律责任。因维修出租房屋影响乙方使用的，经协商，甲方同意按照下列第<span class="content">&ensp;</span>种方式处理：</p>
+              <p>（1）减少租金；（2）延长租期；（3）<span class="content">&ensp;</span>；</p>
+              <p>4.甲方如需出售房屋或需提前收回出租房屋的，须提前<span class="content">&ensp;</span>个月书面通知乙方。</p>
+              <p><b>第七条 乙方的权利与义务</b></p>
+              <p>1.乙方应合理使用并维护承租房屋及附属设施，对消防设施、器材进行维护；不得擅自改变房屋主体结构、规划批准用途或对房屋进行改建、增添设施和进行影响房屋使用安全的装修；由此给甲方或第三人造成财产损失或者人身伤害的，由乙方承担相应的法律责任。甲方进行正常的房屋检查和维修乙方应给予协助和支持。</p>
+          </div>
+          <div class="page">
+              <p>因乙方过错导致房屋及附属设施损坏的，由乙方负责维修，费用由乙方承担。乙方如发现房屋损坏的情况应及时通知甲方。</p>
+              <p>2.乙方需提前解除合同返还承租房屋及附属设施的，须提前<span class="content">&ensp;</span>个月书面通知甲方。</p>
+              <p>3.乙方在法律允许范围内进行转租或分租所承租房屋及附属设施，征得甲方书面同意后，方可在租赁期内将承租房屋部分或全部转租给第三人，并签订转租合同，同时应申请办理房屋租赁登记备案手续。如乙方需对房屋进行装修改造也需征得甲方书面同意。</p>
+              <p>4.租赁期间内甲方转让房屋所有权的，甲方应在房屋出售前<span class="content">&ensp;</span>日书面通知乙方，乙方在同等条件下享有优先购买权。租赁期间房屋所有权发生变动的，本合同在乙方与新所有权人之间仍具有法律效力。</p>
+              <p>5.租赁期限届满，乙方须将本合同约定的房屋及附属设施交还给甲方。如需继续承租使用，双方另行协商。</p>
+              <p>6.对于房屋及其附属物、设施设备因自然耗损或合理使用等非因乙方原因而导致毁损的，乙方发现后应及时通知甲方修复，甲方应接到乙方通知后<span class="content">&ensp;</span>日内维修、更换，费用由甲方承担。甲方逾期不维修的，乙方可代为维修，费用由甲方承担。</p>
+              <p><b>第八条 合同的解除</b></p>
+              <p>１.经甲乙双方协商一致，可以解除本合同。</p>
+              <p>２.因不可抗力致使不能实现本合同目的的，双方可以解除合同。</p>
+              <p>３.除不可抗力外，甲方有下列情形之一的，乙方有权解除合同：</p>
+              <p>（1）迟延交付房屋达<span class="content">&ensp;</span>月的。</p>
+              <p>（2）交付的房屋严重不符合合同约定或影响乙方人身、财产安全的。</p>
+              <p>（3）不承担约定的维修义务，如超过<span class="content">&ensp;</span>天，致使乙方无法正常使用房屋的。</p>
+              <p>（4）<span class="content">&ensp;</span>。</p>
+              <p>４.除不可抗力外，乙方有下列情形之一的，甲方有权解除合同，收回房屋：</p>
+              <p>（1）迟延交付租金达<span class="content">&ensp;</span>日以上，经甲方催告后，在三十日内仍不支付租金的。</p>
+              <p>（2）欠缴各项费用达<span class="content">&ensp;</span>元的。</p>
+              <p>（3）擅自改变房屋用途的。</p>
+              <p>（4）擅自拆改变动或损坏房屋结构的。</p>
+              <p>（5）保管不当或不合理使用导致附属物品、设备设施损坏并拒不赔偿且金额超过<span class="content">&ensp;</span>元的。</p>
+          </div>
+          <div class="page">
+              <p>（6）利用房屋从事违法活动、损害公共利益或者妨碍他人正常工作、生活的。</p>
+              <p>（7）擅自将房屋转租或分租给他人的。</p>
+              <p>（8）<span class="content">&ensp;</span>。</p>
+              <p><b>第九条 违约责任</b></p>
+              <p>1.甲方保证所出租房屋符合相关法规规定的出租条件。租赁期限内若出现与甲方有关的权属纠纷，由甲方负责，并承担相应法律责任，因此给乙方造成的经济损失，由甲方承担赔偿责任。</p>
+              <p>2.因城市建设需要依法拆除或改造租赁期未满的房屋，致使甲乙双方无法改造合同并造成损失的，甲乙双方可依照法律、政策的规定处理。</p>
+              <p>3.甲方应于本合同签定后的<span class="content">&ensp;</span>日之内将所出租房屋交付给乙方使用，逾期交付房屋的，除退还逾期交付房屋期间的租金外，并按每逾期一日，由甲方按月租金额的<span class="content">&ensp;</span>‰向乙方支付违约金，因此给乙方造成损失的，由甲方承担赔偿责任。</p>
+              <p>4.乙方保证按本合同约定的时间和方式支付租金，逾期支付租金的，除补交欠租外，并按每逾期一日，由乙方按月租金额的<span class="content">&ensp;</span>‰向甲方支付违约金。</p>
+              <p>5.本合同签订后，因甲方或乙方违约导致本合同无法履行的，由违约方向守约方支付违约金，计人民币（大写）<span class="content">&ensp;</span>（¥：<span class="content">&ensp;</span>）。</p>
+              <p>6.房屋租赁期间，甲方采取暴力、威胁或者其他强制方式驱逐乙方，收回住房的，除支付违约金外还应承担赔偿责任。</p>
+              <p><b>第十条 合同争议的解决方式</b></p>
+              <p>本合同在履行中若发生争议，甲乙双方应协商解决。协商不成的，按照下列第<span class="content">&ensp;</span>种方式解决：</p>
+              <p>１、提交武汉仲裁委员会仲裁。</p>
+              <p>２、依法向房屋所在地人民法院起诉。</p>
+              <p><b>第十一条 其它约定</b></p>
+              <p>１.本合同自双方签字盖章之日或约定之日起生效，同时双方应自觉履行该房屋租赁合同约定的房屋租赁登记备案法律义务。</p>
+              <p>２.本合同未尽事宜，甲乙双方可另行议定，其补充合同（协议）的约定与本合同具有同等法律效力。</p>
+              <p>３.本合同一式<span class="content">&ensp;</span>份，其中：甲乙双方各执<span class="content">&ensp;</span>份，提交<span class="content">&ensp;</span>房屋租赁管理部门一份。</p>
+              <p style="text-decoration: underline;word-break: break-all;height: 76px; overflow: hidden;">４.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+          </div>
+          <div class="page">
+              <div class="signature">
+                  <p><span>甲方（签章）：</span><span>乙方（签章）：</span></p>
+                  <br>
+                  <p>法定代表人：</p>
+                  <p>委托代理人：（签章）</p>
+                  <p><span>电话：</span><span>电话：</span></p>
+                  <br>
+                  <p>签约时间：<span class="content" style="width: 50px">&ensp;</span>年<span class="content" style="width: 40px">&ensp;</span>月<span class="content" style="width: 40px">&ensp;</span>日</p>
+              </div>
+              <br>
+              <p>租赁关系由房地产经纪机构居间或代理的，房地产经纪机构和持证经纪人员应填写以下内容：</p>
+              <p>房地产经纪机构（签章）：</p>
+              <p>房地产经纪持证人员姓名：</p>
+              <p>经纪资格证书编号：</p>
+              <br>
+              <br>
+              <br>
+              <div style="font-size: 18px;">合同附件：</div>
+              <div style="font-size: 18px;text-align: center;">房屋及附属设施设备、装饰装修和相关物品交付清单</div>
+              <table border="0" cellspacing="0" cellpadding="0" class="table-otherList">
+                  <tr class="tr-first">
+                      <td width="80px"></td>
+                      <td width="80px"></td>
+                      <td width="60px"></td>
+                      <td width="80px"></td>
+                      <td width="100px"></td>
+                      <td width="80px"></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>名称</td>
+                      <td>品牌</td>
+                      <td>数量</td>
+                      <td>完好程度</td>
+                      <td>购买时间</td>
+                      <td>起计底数</td>
+                      <td>备注</td>
+                  </tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              </table>
+          </div>
+      </div>
+  </section>
 </body>
 </html>
